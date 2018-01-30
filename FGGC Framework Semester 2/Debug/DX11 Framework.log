@@ -1,0 +1,3 @@
+﻿  Application.cpp
+Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  DX11 Framework.vcxproj -> C:\Users\h012803g\Desktop\FGGC Framework Semester 2\Debug\DX11 Framework.exe
