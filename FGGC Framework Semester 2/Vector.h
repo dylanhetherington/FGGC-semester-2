@@ -14,12 +14,12 @@ public:
 	static Vector Normalize(const Vector);
 	static float Magnitude(const Vector);
 
-	static Vector operator+(const Vector, const Vector);
-	static Vector operator-(const Vector, const Vector);
-	static Vector operator*(const Vector, const float);
-	static Vector operator/(const Vector, const float);
-	static bool operator==(const Vector, const Vector);
-	static bool operator!=(const Vector, const Vector);
+	Vector operator+(const Vector);
+	Vector operator-(const Vector);
+	Vector operator*(const float);
+	Vector operator/(const float);
+	bool operator==(const Vector);
+	bool operator!=(const Vector);
 
 	float x, y, z;
 };

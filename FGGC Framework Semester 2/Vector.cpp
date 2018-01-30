@@ -37,53 +37,53 @@ float Vector::Magnitude(const Vector vector)
 {
 	return sqrt(pow(vector.x, 2) + pow(vector.y, 2) + pow(vector.z, 2));
 }
-Vector Vector::operator+(const Vector a,const Vector b)
+Vector Vector::operator+(const Vector b)
 {
 	float addX, addY, addZ;
-	addX = a.x + b.x;
-	addY = a.y + b.y;
-	addZ = a.z + b.z;
+	addX = this->x + b.x;
+	addY = this->y + b.y;
+	addZ = this->z + b.z;
 	Vector additionVector(addX, addY, addZ);
 	return additionVector;
 }
-Vector Vector::operator-(const Vector a,const Vector b)
+Vector Vector::operator-(const Vector b)
 {
 	float subX, subY, subZ;
-	subX = a.x - b.x;
-	subY = a.y - b.y;
-	subZ = a.z - b.z;
+	subX = this->x - b.x;
+	subY = this->y - b.y;
+	subZ = this->z - b.z;
 	Vector subVector(subX, subY, subZ);
 	return subVector;
 }
-Vector Vector::operator*(const Vector a,const float b)
+Vector Vector::operator*(const float b)
 {
 	float multiX, multiY, multiZ;
-	multiX = a.x * b;
-	multiY = a.y * b;
-	multiZ = a.z * b;
+	multiX = this->x * b;
+	multiY = this->y * b;
+	multiZ = this->z * b;
 	Vector multiVector(multiX, multiY, multiZ);
 	return multiVector;
 }
-Vector Vector::operator/(const Vector a,const float b)
+Vector Vector::operator/(const float b)
 {
 	float divX, divY, divZ;
-	divX = a.x / b;
-	divY = a.y / b;
-	divZ = a.z / b;
+	divX = this->x / b;
+	divY = this->y / b;
+	divZ = this->z / b;
 	Vector divVector(divX, divY, divZ);
 	return divVector;
 }
-bool Vector::operator==(const Vector a, const Vector b)
+bool Vector::operator==(const Vector b)
 {
-	if (a.x == b.x && a.y == b.y && a.z == b.z)
+	if (this->x == b.x && this->y == b.y && this->z == b.z)
 	{
 		return true;
 	}
 	return false;
 }
-bool Vector::operator!=(const Vector a, const Vector b)
+bool Vector::operator!=(const Vector b)
 {
-	if (a.x != b.x && a.y != b.y && a.z != b.z)
+	if (this->x != b.x && this->y != b.y && this->z != b.z)
 	{
 		return true;
 	}

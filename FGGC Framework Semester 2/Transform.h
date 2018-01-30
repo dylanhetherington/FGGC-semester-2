@@ -24,14 +24,15 @@ public:
 
 	Vector GetRotation() const { return _rotation; }
 
-	XMMATRIX GetWorldMatrix() const { return XMLoadFloat4x4(&_world); }
+	DirectX::XMMATRIX GetWorldMatrix() const { return DirectX::XMLoadFloat4x4(&_world); }
 	void SetParent(Transform * parent) { _parent = parent; }
 	void UpdateWorldMatrix(float dt);
+
 private:
 	Vector _position;
 	Vector _rotation;
 	Vector _scale;
-	XMFLOAT4X4 _world;
+	DirectX::XMFLOAT4X4 _world;
 	Transform * _parent;
 };
 

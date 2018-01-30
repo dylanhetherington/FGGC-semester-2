@@ -6,6 +6,7 @@
 #include "Vector.h"
 #include "Transform.h"
 #include "Structures.h"
+#include "Particle.h"
 
 using namespace DirectX;
 using namespace std;
@@ -31,10 +32,11 @@ public:
 	void Update(float t);
 	void Draw(ID3D11DeviceContext * pImmediateContext);
 
-private:
 	Transform* _transform;
-	string _type;
+private:
 
+	string _type;
+	Particle* _particle;
 	Geometry _geometry;
 	Material _material;
 
