@@ -25,16 +25,19 @@ public:
 
 	Material GetMaterial() const { return _material; }
 
+	Transform* GetTransform() const { return _transform; }
+
+	Particle* GetParticle() const { return _particle; }
+
 	void SetTextureRV(ID3D11ShaderResourceView * textureRV) { _textureRV = textureRV; }
 	ID3D11ShaderResourceView * GetTextureRV() const { return _textureRV; }
 	bool HasTexture() const { return _textureRV ? true : false; }
 
 	void Update(float t);
 	void Draw(ID3D11DeviceContext * pImmediateContext);
-
-	Transform* _transform;
+	
 private:
-
+	Transform* _transform;
 	string _type;
 	Particle* _particle;
 	Geometry _geometry;

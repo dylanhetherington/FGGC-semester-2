@@ -1,10 +1,13 @@
 #pragma once
+#include "Transform.h"
 class Particle
 {
 public:
-	Particle();
+	Particle(Transform * transform);
 	~Particle();
-	//void moveForward();
+	void ParticleMoveForward();
 
+private:
+	Transform* _transform;
 };
 

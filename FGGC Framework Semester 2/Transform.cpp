@@ -13,6 +13,7 @@ Transform::Transform()
 
 Transform::~Transform()
 {
+	
 }
 
 void Transform::UpdateWorldMatrix(float dt)

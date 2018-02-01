@@ -4,10 +4,14 @@ GameObject::GameObject(string type, Geometry geometry, Material material) : _geo
 {
 	_textureRV = nullptr;
 	_transform = new Transform();
+	_particle = new Particle(_transform);
 }
 
 GameObject::~GameObject()
 {
+	delete _particle;
+	delete _transform;
+	delete _textureRV;
 }
 
 void GameObject::Update(float t)
