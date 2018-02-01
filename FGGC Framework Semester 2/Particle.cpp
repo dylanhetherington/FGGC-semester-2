@@ -1,7 +1,5 @@
 #include "Particle.h"
 
-
-
 Particle::Particle(Transform* transform)
 {
 	_transform = transform;

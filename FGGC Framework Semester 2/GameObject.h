@@ -7,6 +7,7 @@
 #include "Transform.h"
 #include "Structures.h"
 #include "Particle.h"
+#include "Apperance.h"
 
 using namespace DirectX;
 using namespace std;
@@ -21,28 +22,21 @@ public:
 
 	string GetType() const { return _type; }
 
-	Geometry GetGeometryData() const { return _geometry; }
-
-	Material GetMaterial() const { return _material; }
-
 	Transform* GetTransform() const { return _transform; }
 
 	Particle* GetParticle() const { return _particle; }
 
-	void SetTextureRV(ID3D11ShaderResourceView * textureRV) { _textureRV = textureRV; }
-	ID3D11ShaderResourceView * GetTextureRV() const { return _textureRV; }
-	bool HasTexture() const { return _textureRV ? true : false; }
+	Apperance* GetApperance() const { return _apperance; }
 
 	void Update(float t);
 	void Draw(ID3D11DeviceContext * pImmediateContext);
 	
 private:
-	Transform* _transform;
 	string _type;
-	Particle* _particle;
-	Geometry _geometry;
-	Material _material;
 
-	ID3D11ShaderResourceView * _textureRV;
+	Transform* _transform;
+	Particle* _particle;
+	Apperance* _apperance;
+
 };
 
