@@ -16,6 +16,7 @@ GameObject::~GameObject()
 void GameObject::Update(float t)
 {
 	_transform->UpdateWorldMatrix(t);
+	_particle->MoveConstantVelocity(t);
 }
 
 void GameObject::Draw(ID3D11DeviceContext * pImmediateContext)
