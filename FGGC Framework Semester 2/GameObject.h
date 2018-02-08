@@ -22,11 +22,11 @@ public:
 
 	string GetType() const { return _type; }
 
-	Transform* GetTransform() const { return _transform; }
+	Transform* GetTransform() const { return _pTransform; }
 
-	Particle* GetParticle() const { return _particle; }
+	Particle* GetParticle() const { return _pParticle; }
 
-	Apperance* GetApperance() const { return _apperance; }
+	Apperance* GetApperance() const { return _pApperance; }
 
 	void Update(float t);
 	void Draw(ID3D11DeviceContext * pImmediateContext);
@@ -34,9 +34,9 @@ public:
 private:
 	string _type;
 
-	Transform* _transform;
-	Particle* _particle;
-	Apperance* _apperance;
+	Transform* _pTransform;
+	Particle* _pParticle;
+	Apperance* _pApperance;
 
 };
 

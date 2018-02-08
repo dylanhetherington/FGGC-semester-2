@@ -7,7 +7,7 @@ Transform::Transform()
 	_position = Vector();
 	_rotation = Vector();
 	_scale = Vector(1.0f, 1.0f, 1.0f);
-	_parent = nullptr;
+	_pParent = nullptr;
 
 }
 
@@ -24,8 +24,8 @@ void Transform::UpdateWorldMatrix(float dt)
 
 	DirectX::XMStoreFloat4x4(&_world, scale * rotation * translation);
 
-	if (_parent != nullptr)
+	if (_pParent != nullptr)
 	{
-		DirectX::XMStoreFloat4x4(&_world, this->GetWorldMatrix() * _parent->GetWorldMatrix());
+		DirectX::XMStoreFloat4x4(&_world, this->GetWorldMatrix() * _pParent->GetWorldMatrix());
 	}
 }

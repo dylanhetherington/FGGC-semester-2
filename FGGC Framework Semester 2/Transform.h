@@ -25,7 +25,7 @@ public:
 	Vector GetRotation() const { return _rotation; }
 
 	DirectX::XMMATRIX GetWorldMatrix() const { return DirectX::XMLoadFloat4x4(&_world); }
-	void SetParent(Transform * parent) { _parent = parent; }
+	void SetParent(Transform * parent) { _pParent = parent; }
 	void UpdateWorldMatrix(float dt);
 
 private:
@@ -33,6 +33,6 @@ private:
 	Vector _rotation;
 	Vector _scale;
 	DirectX::XMFLOAT4X4 _world;
-	Transform * _parent;
+	Transform * _pParent;
 };
 

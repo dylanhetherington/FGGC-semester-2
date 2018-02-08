@@ -2,24 +2,24 @@
 
 GameObject::GameObject(string type, Geometry geometry, Material material) : _type(type)
 {
-	_apperance = new Apperance(geometry, material);
-	_transform = new Transform();
-	_particle = new Particle(_transform);
+	_pApperance = new Apperance(geometry, material);
+	_pTransform = new Transform();
+	_pParticle = new Particle(_pTransform);
 }
 
 GameObject::~GameObject()
 {
-	delete _particle;
-	delete _transform;
+	delete _pParticle;
+//	delete _transform;
 }
 
 void GameObject::Update(float t)
 {
-	_transform->UpdateWorldMatrix(t);
-	_particle->MoveConstantVelocity(t);
+	_pTransform->UpdateWorldMatrix(t);
+	_pParticle->Update(t, _type);
 }
 
 void GameObject::Draw(ID3D11DeviceContext * pImmediateContext)
 {
-	_apperance->DrawApperance(pImmediateContext);
+	_pApperance->DrawApperance(pImmediateContext);
 }

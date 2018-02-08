@@ -597,7 +597,6 @@ HRESULT Application::InitDevice()
 
     return S_OK;
 }
-
 void Application::Cleanup()
 {
     if (_pImmediateContext) _pImmediateContext->ClearState();
@@ -688,8 +687,8 @@ void Application::Update()
 	{
 		gameObject->Update(timeSinceStart);
 	}
+	Sleep(20);
 }
-
 void Application::Draw()
 {
     //
