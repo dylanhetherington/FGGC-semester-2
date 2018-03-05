@@ -17,6 +17,7 @@ using namespace std;
 class GameObject
 {
 public:
+	GameObject(string type, Geometry geometry, Material material, float mass);
 	GameObject(string type, Geometry geometry, Material material);
 	~GameObject();
 

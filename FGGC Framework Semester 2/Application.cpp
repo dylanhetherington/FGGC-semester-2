@@ -141,7 +141,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	noSpecMaterial.specular = XMFLOAT4(0.0f, 0.0f, 0.0f, 0.0f);
 	noSpecMaterial.specularPower = 0.0f;
 	
-	GameObject * gameObject = new GameObject("Floor", planeGeometry, noSpecMaterial);
+	GameObject * gameObject = new GameObject("Floor", planeGeometry, noSpecMaterial, 0.0f);
 	gameObject->GetTransform()->SetPosition(0.0f, 0.0f, 0.0f);
 	gameObject->GetTransform()->SetScale(15.0f, 15.0f, 15.0f);
 	gameObject->GetTransform()->SetRotation(XMConvertToRadians(90.0f), 0.0f, 0.0f);
@@ -417,7 +417,6 @@ HRESULT Application::InitWindow(HINSTANCE hInstance, int nCmdShow)
 
     return S_OK;
 }
-
 HRESULT Application::CompileShaderFromFile(WCHAR* szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut)
 {
     HRESULT hr = S_OK;
@@ -449,7 +448,6 @@ HRESULT Application::CompileShaderFromFile(WCHAR* szFileName, LPCSTR szEntryPoin
 
     return S_OK;
 }
-
 HRESULT Application::InitDevice()
 {
     HRESULT hr = S_OK;
@@ -647,7 +645,7 @@ void Application::Cleanup()
 
 void Application::moveForward(int objectNumber)
 {
-	_gameObjects[objectNumber]->GetParticle()->ParticleMoveForward();
+	_gameObjects[objectNumber]->GetParticle()->SetThrustForce(0.0f, 0.0f, 1.0f);
 }
 
 void Application::Update()
@@ -668,6 +666,11 @@ void Application::Update()
 	{
 		moveForward(1);
 	}
+	if (GetAsyncKeyState('2'))
+	{
+		_gameObjects[1]->GetParticle()->SetAtRest(false);
+		_gameObjects[1]->GetParticle()->SetThrustForce(0.0f, 9.81f, 0.0f);
+	}
 
 	// Update camera
 	float angleAroundZ = XMConvertToRadians(_cameraOrbitAngleXZ);
@@ -681,7 +684,6 @@ void Application::Update()
 
 	_camera->SetPosition(cameraPos);
 	_camera->Update();
-
 	// Update objects
 	for (auto gameObject : _gameObjects)
 	{
